@@ -1,0 +1,86 @@
+﻿@model IEnumerable<maestroDetalle2Pract.AppWebMVC.Models.Venta>
+
+@{
+    ViewData["Title"] = "Ventas";
+	var modelBuscar = new Venta();
+}
+
+<h1>Ventas</h1>
+<form asp-action="Index">
+    <div class="row">
+        <div class="form-group col-4">
+            <label asp-for="@modelBuscar.NombreCliente" class="control-label"></label>
+            <input name="nombreCliente" class="form-control" />
+
+        </div>
+        <div class="form-group col-4">
+            <label asp-for="@modelBuscar.FechaVenta" class="control-label"></label>
+            <input asp-for="@modelBuscar.FechaVenta" class="form-control" type="date" />
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="form-group col-3">
+            <label>Cant. Registros</label>
+            <select name="topRegistro" class="form-control">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="0">Todos</option>
+            </select>
+        </div>
+    </div>
+        <div class="row mt-3">
+            <div class="form-group">
+                <input type="submit" value="Buscar" class="btn btn-dark" />
+                <a asp-action="Create" class=" btn btn-info"><i class="bi accordion-body" title="Ir a crear">Crear</i></a>
+            </div>
+        </div>
+</form>
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Correlativo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaVenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCliente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correlativo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaVenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCliente)
+            </td>
+                <td>
+                    <div>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-dark" title="Editar"><i class="bi bi-pencil"></i>Editar </a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-dark" title="Detalles"><i class="bi bi-eye">Detalle</i> </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-dark" title="Eliminar"><i class="bi bi-trash-fill"></i>Eliminar </a>
+                    </div>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

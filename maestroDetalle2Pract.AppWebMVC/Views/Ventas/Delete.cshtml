@@ -1,4 +1,4 @@
-﻿@model maestroDetalle2Pract.AppWebMVC.Models.Producto
+﻿@model maestroDetalle2Pract.AppWebMVC.Models.Venta
 
 @{
     ViewData["Title"] = "Eliminar";
@@ -8,32 +8,32 @@
 
 <h3>Esta seguro de eliminar el registro?</h3>
 <div>
-    <h4>Producto</h4>
+    <h4>Venta</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
+            @Html.DisplayNameFor(model => model.Correlativo)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
+            @Html.DisplayFor(model => model.Correlativo)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descripcion)
+            @Html.DisplayNameFor(model => model.FechaVenta)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descripcion)
+            @Html.DisplayFor(model => model.FechaVenta)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Precio)
+            @Html.DisplayNameFor(model => model.Total)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Precio)
+            @Html.DisplayFor(model => model.Total)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Stock)
+            @Html.DisplayNameFor(model => model.NombreCliente)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Stock)
+            @Html.DisplayFor(model => model.NombreCliente)
         </dd>
     </dl>
     <form asp-action="Delete">
@@ -41,4 +41,5 @@
         <input type="submit" value="Delete" class="btn btn-dark" />
         <a asp-action="Index" class="btn btn-dark">Regresar</a>
     </form>
+
 </div>

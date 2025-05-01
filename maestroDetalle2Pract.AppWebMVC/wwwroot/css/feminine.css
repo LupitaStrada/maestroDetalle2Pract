@@ -1,0 +1,90 @@
+/* site.css */
+
+/* Estilos generales */
+body {
+    font-family: Roboto; /* Ejemplo de fuente */
+    background-color: #f8f9fa; /* Un fondo general claro */
+    color: #333;
+}
+
+/* Estilos del menú lateral */
+.sidebar {
+    background-color: blueviolet; /* Un azul oscuro diferente */
+    color: white;
+    padding: 1rem;
+    /* Otros estilos como ancho fijo, etc. */
+}
+
+    .sidebar h2 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .sidebar .nav-link {
+        color: #eee;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+        .sidebar .nav-link:hover {
+            background-color: #004494;
+        }
+
+    .sidebar .btn-primary { /* Estilo para el botón Iniciar sesión */
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+/* Estilos del contenido principal */
+.content-area {
+    padding: 2rem;
+    background-color: white; /* O un fondo claro */
+    margin-left: 250px; /* Ejemplo de margen para el menú lateral fijo */
+}
+
+h1 {
+    font-family: 'Libre Baskerville', Candara; /* Ejemplo de fuente para encabezados */
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+}
+
+    .table thead th {
+        background-color: #343a40;
+        color: white;
+        border-bottom: 2px solid #dee2e6;
+        padding: 0.75rem;
+        text-align: left;
+    }
+
+    .table tbody td {
+        padding: 0.75rem;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .table tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.05); /* Filas impares con fondo ligero */
+    }
+
+.btn-primary { /* Reemplaza el azul predeterminado */
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+

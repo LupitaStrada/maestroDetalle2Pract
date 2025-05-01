@@ -19,9 +19,16 @@ namespace maestroDetalle2Pract.AppWebMVC.Controllers
         }
 
         // GET: Productoes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Producto producto, int topRegistro=10)
         {
-            return View(await _context.Productos.ToListAsync());
+            var query = _context.Productos.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(producto.Nombre))
+                query = query.Where(s => s.Nombre.Contains(producto.Nombre));
+            if (producto.Precio > 0)
+                query = query.Where(s => s.Precio == producto.Precio);
+            if (topRegistro > 0)
+                query = query.Take(topRegistro);
+            return View(await query.ToListAsync());
         }
 
         // GET: Productoes/Details/5
