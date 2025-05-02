@@ -36,6 +36,9 @@
             @Html.DisplayFor(model => model.NombreCliente)
         </dd>
     </dl>
+    <div class="row" id="divDetallesVenta">
+        <partial name="_detalleventa" model="Model.DetallesVentas" />
+    </div>
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-dark" />
@@ -43,3 +46,12 @@
     </form>
 
 </div>
+@section Scripts {
+    <script>
+        $(function (){
+            $("*[data-create]").hide();
+            $("*[data-edit]").hide();
+            $("*[data-disabled]").attr("disabled","disabled");
+        });
+    </script>
+}

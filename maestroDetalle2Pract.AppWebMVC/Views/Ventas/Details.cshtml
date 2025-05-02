@@ -35,8 +35,20 @@
             @Html.DisplayFor(model => model.NombreCliente)
         </dd>
     </dl>
+    <div class="row" id="divDetallesVenta">
+        <partial name="_detalleventa" model="Model.DetallesVentas" />
+    </div>
 </div>
 <div>
     <input type="submit" value="Create" class="btn btn-dark" />
     <a asp-action="Index" class="btn btn-dark">Regresar</a>
 </div>
+@section Scripts {
+    <script>
+        $(function (){
+            $("*[data-create]").hide();
+            $("*[data-edit]").hide();
+            $("*[data-disabled]").attr("disabled","disabled");
+        });
+    </script>
+}

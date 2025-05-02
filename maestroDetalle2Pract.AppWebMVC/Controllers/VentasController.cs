@@ -50,7 +50,7 @@ namespace maestroDetalle2Pract.AppWebMVC.Controllers
             }
 
             ViewBag.Productos = _context.Productos;
-            return View();
+            return View(venta);
         }
 
         // GET: Ventas/Create
@@ -64,7 +64,7 @@ namespace maestroDetalle2Pract.AppWebMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Correlativo,FechaVenta,Total,NombreCliente, Detallesventas")] Venta venta)
+        public async Task<IActionResult> Create([Bind("Id,Correlativo,FechaVenta,Total,NombreCliente, DetallesVentas")] Venta venta)
         {
             if (ModelState.IsValid)
             {
@@ -83,11 +83,14 @@ namespace maestroDetalle2Pract.AppWebMVC.Controllers
                 return NotFound();
             }
 
-            var venta = await _context.Ventas.FindAsync(id);
+            var venta = await _context.Ventas
+                .Include(s => s.DetallesVentas)
+                .FirstOrDefaultAsync(s=> s.Id==id);
             if (venta == null)
             {
                 return NotFound();
             }
+            ViewBag.Productos = _context.Productos;
             return View(venta);
         }
 
@@ -135,12 +138,13 @@ namespace maestroDetalle2Pract.AppWebMVC.Controllers
             }
 
             var venta = await _context.Ventas
+                .Include(s => s.DetallesVentas)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (venta == null)
             {
                 return NotFound();
             }
-
+            ViewBag.Productos = _context.Productos;
             return View(venta);
         }
 
